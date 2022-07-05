@@ -123,7 +123,7 @@ did_imputation <- function(data, yname, gname, tname, idname, first_stage = NULL
 
   # make local copy of data, convert to data.table
   needed_vars <- unique(c(yvars, gname, tname, idname, wname, wtr, rhsvars, fevars, cluster_var))
-  data <- copy(data[, needed_vars]) %>% setDT()
+  data <- copy(data[, needed_vars, with = F]) %>% setDT()
   rm(fixest_env)
 
   setDT(data)
